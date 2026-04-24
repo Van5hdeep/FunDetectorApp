@@ -14,8 +14,8 @@ So I built this.
 This is a Python-powered system that:
 
 * Watches you through your webcam 👀
-* Detects when a **phone** appears
-* Immediately **snitches on you with a sound alert** 🔊
+* Uses a base YOLO model that can detect many object classes (not just phones)
+* Alerts you with the built-in Windows alert sound when configured conditions are met 🔊
 
 Basically, it's your digital discipline partner... but way less forgiving.
 
@@ -25,8 +25,8 @@ Basically, it's your digital discipline partner... but way less forgiving.
 
 * Real-time camera detection (no lag... no escape)
 * Uses YOLO (yes, the cool AI model, not the meme... well, both)
-* Draws a box around your phone like it's a criminal
-* Plays a custom alert sound when you're caught 📢
+* Current model can recognize multiple object types from COCO classes
+* Plays the native Windows alert sound when you're caught 📢
 * Doesn't spam sound like an idiot (only triggers once per detection)
 
 ---
@@ -34,7 +34,7 @@ Basically, it's your digital discipline partner... but way less forgiving.
 ## 🧠 How it works (simple version)
 
 ```
-Camera -> AI sees phone -> "AHA GOT YOU" -> plays sound
+Camera -> AI sees object(s) -> target condition is met -> plays Windows alert sound
 ```
 
 ---
@@ -51,17 +51,10 @@ pip install opencv-python ultralytics
 
 ---
 
-### 2. Add your sound
-
-* Convert your audio to `alert.wav`
-* Put it in the same folder as the script
-
----
-
-### 3. Run it
+### 2. Run it
 
 ```bash
-python main.py
+python phone_alert.py
 ```
 
 ---
@@ -77,6 +70,7 @@ python main.py
 * This WILL expose your lack of self-control
 * Works best in good lighting
 * May cause guilt, shame, and productivity
+* Custom phone-only training is still pending; right now detection uses the general pretrained model
 
 ---
 
